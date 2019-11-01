@@ -1,0 +1,7 @@
+.media-cards-container {
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    flex-flow: row wrap;
+    justify-content: center;
+}
