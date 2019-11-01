@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import MediaCard from "../MediaCard/MediaCard";
+import {connect} from "react-redux";
 
-export default class MediaCards extends Component {
+class MediaCards extends Component {
     render() {
         return (
                 this.props.experiences.map( (card) => (
@@ -15,3 +16,9 @@ export default class MediaCards extends Component {
 
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        experiences: state.experiences
+    };
+};
+export default connect(mapStateToProps)(MediaCards);

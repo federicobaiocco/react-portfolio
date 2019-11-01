@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 
-class Progress extends Component {
+class Skill extends Component {
     render() {
         return (
             this.props.experiences.map( (card) => (
@@ -15,7 +15,7 @@ class Progress extends Component {
 
     }
 }
-const mapStateToProps = (Progress) => {
+const mapStateToProps = (Skill) => {
     return {
         experiences: state.experiences
     };

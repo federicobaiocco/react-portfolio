@@ -1,4 +1,4 @@
-import {FIX_HEADER, HIDE_NAVBAR, SHOW_NAVBAR, UNFIX_HEADER, UPDATE_SCROLL_POS} from '../actions/actions';
+import {FIX_HEADER, HIDE_NAVBAR, SHOW_NAVBAR, UNFIX_HEADER} from '../actions/actions';
 const initialState = {
     experiences: [
         {
@@ -47,7 +47,6 @@ const initialState = {
         headerState: 'normal'
     },
     navbar: {
-        prevScrollpos: window.pageYOffset,
         visible: true
     }
 };
@@ -65,17 +64,12 @@ function reducer(state = initialState, action) {
     }
     if (action.type === HIDE_NAVBAR) {
         return Object.assign({}, state, {
-            navbar: {visible: false, prevScrollpos: state.navbar.prevScrollpos}
+            navbar: {visible: false}
         });
     }
     if (action.type === SHOW_NAVBAR) {
         return Object.assign({}, state, {
-            navbar: {visible: true, prevScrollpos: state.navbar.prevScrollpos}
-        });
-    }
-    if (action.type === UPDATE_SCROLL_POS) {
-        return Object.assign({}, state, {
-            navbar: {prevScrollpos: action.payload, visible: state.navbar.visible}
+            navbar: {visible: true}
         });
     }
     return state;

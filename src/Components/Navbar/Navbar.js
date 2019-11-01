@@ -4,11 +4,8 @@ import { connect } from 'react-redux';
 
 class Navbar extends Component {
     handleScroll = () => {
-        const prevScrollpos  = this.props.prevScrollpos;
         const currentScrollPos = window.pageYOffset;
-        const visible = prevScrollpos > currentScrollPos;
-
-        if(visible) {
+        if(currentScrollPos < 40) {
             this.props.dispatch({ type: 'UNFIX_HEADER' });
             this.props.dispatch({type: 'SHOW_NAVBAR'});
         }
@@ -16,7 +13,6 @@ class Navbar extends Component {
             this.props.dispatch({ type: 'FIX_HEADER' });
             this.props.dispatch({type: 'HIDE_NAVBAR'});
         }
-        this.props.dispatch({type: 'UPDATE_SCROLL_POS', payload: currentScrollPos});
     };
 
     componentDidMount() {
@@ -45,8 +41,7 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        visible: state.navbar.visible,
-        prevScrollpos: state.navbar.prevScrollpos
+        visible: state.navbar.visible
     };
 };
 
