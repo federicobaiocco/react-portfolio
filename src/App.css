@@ -5,3 +5,13 @@
     flex-flow: row wrap;
     justify-content: center;
 }
+.skills-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+.nunito {
+    font-family: 'Nunito', sans-serif;
+}
