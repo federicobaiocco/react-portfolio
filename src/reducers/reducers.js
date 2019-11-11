@@ -1,4 +1,15 @@
-import {FIX_HEADER, HIDE_NAVBAR, SHOW_NAVBAR, UNFIX_HEADER, UPDATE_SCROLL_POS, SET_SKILLS, SET_DEGREES, SET_EXPERIENCES} from '../actions/actions';
+import {
+    FIX_HEADER,
+    HIDE_NAVBAR,
+    SHOW_NAVBAR,
+    UNFIX_HEADER,
+    UPDATE_SCROLL_POS,
+    SET_SKILLS,
+    SET_DEGREES,
+    SET_EXPERIENCES,
+    SHOW_SNACKBAR,
+    HIDE_SNACKBAR, SHOW_EXPERIENCES_FORM, HIDE_EXPERIENCES_FORM
+} from '../actions/actions';
 const initialState = {
     experiences: [
     ],
@@ -13,6 +24,14 @@ const initialState = {
     navbar: {
         prevScrollpos: window.pageYOffset,
         visible: true
+    },
+    snackBar: {
+        showSnackBar: false,
+        snackbarMessage: '',
+        snackbarVariant: 'info'
+    },
+    experiencesForm: {
+        show: false
     }
 };
 
@@ -55,6 +74,38 @@ function reducer(state = initialState, action) {
     if (action.type === SET_EXPERIENCES) {
         return Object.assign({}, state, {
             experiences: action.payload
+        });
+    }
+    if (action.type === SHOW_SNACKBAR) {
+        return Object.assign({}, state, {
+            snackBar: {
+                showSnackBar: true,
+                snackbarMessage: action.payload.message,
+                snackbarVariant: action.payload.variant
+            }
+        });
+    }
+    if (action.type === HIDE_SNACKBAR) {
+        return Object.assign({}, state, {
+            snackBar: {
+                showSnackBar: false,
+                snackbarMessage: '',
+                snackbarVariant: 'info'
+            }
+        });
+    }
+    if (action.type === SHOW_EXPERIENCES_FORM) {
+        return Object.assign({}, state, {
+            experiencesForm: {
+                show: true
+            }
+        });
+    }
+    if (action.type === HIDE_EXPERIENCES_FORM) {
+        return Object.assign({}, state, {
+            experiencesForm: {
+                show: false
+            }
         });
     }
     return state;
