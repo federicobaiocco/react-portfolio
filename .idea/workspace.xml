@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a57d0ec-8426-4261-8cf6-7e31899d13d1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/DegreesForm/DegreesForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/DegreesForm/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/DegreesList/DegreesList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/DegreesList/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/History/History.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/History/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/SkillsForm/SkillsForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/SkillsForm/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/SkillsList/SkillsList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/SkillsList/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/ExperiencesForm/ExperiencesForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ExperiencesForm/ExperiencesForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ExperiencesForm/ExperiencesForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ExperiencesList/ExperiencesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ExperiencesList/ExperiencesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Snackbar/Snackbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Snackbar/Snackbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/reducers.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/DegreesForm/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+            <state relative-caret-position="277">
+              <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -61,6 +43,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
               <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExperiencesForm.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Components/ExperiencesForm/ExperiencesForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -118,8 +112,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -162,7 +156,6 @@
         <option value="$PROJECT_DIR$/src/Components/SkillsList/style.css" />
         <option value="$PROJECT_DIR$/src/Components/ExperiencesList/ExperiencesList.js" />
         <option value="$PROJECT_DIR$/src/Components/SkillsForm/SkillsForm.js" />
-        <option value="$PROJECT_DIR$/src/Components/ExperiencesForm/ExperiencesForm.js" />
         <option value="$PROJECT_DIR$/src/Components/SkillsList/SkillsList.js" />
         <option value="$PROJECT_DIR$/src/Components/History/style.css" />
         <option value="$PROJECT_DIR$/src/Components/History/History.js" />
@@ -173,6 +166,7 @@
         <option value="$PROJECT_DIR$/src/Components/DegreesList/DegreesList.js" />
         <option value="$PROJECT_DIR$/src/Components/DegreesForm/DegreesForm.js" />
         <option value="$PROJECT_DIR$/src/Components/DegreesForm/style.css" />
+        <option value="$PROJECT_DIR$/src/Components/ExperiencesForm/ExperiencesForm.js" />
       </list>
     </option>
   </component>
@@ -359,7 +353,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74540000" />
+    <option name="totallyTimeSpent" value="74629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -647,16 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/ExperiencesForm/ExperiencesForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="131" column="31" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/SkillsForm/SkillsForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -726,8 +710,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/DegreesForm/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        <state relative-caret-position="277">
+          <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/ExperiencesForm/ExperiencesForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
