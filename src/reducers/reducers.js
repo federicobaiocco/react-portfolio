@@ -8,7 +8,13 @@ import {
     SET_DEGREES,
     SET_EXPERIENCES,
     SHOW_SNACKBAR,
-    HIDE_SNACKBAR, SHOW_EXPERIENCES_FORM, HIDE_EXPERIENCES_FORM
+    HIDE_SNACKBAR,
+    SHOW_EXPERIENCES_FORM,
+    HIDE_EXPERIENCES_FORM,
+    DELETE_EXPERIENCE,
+    DELETE_SKILL,
+    HIDE_SKILLS_FORM,
+    SHOW_SKILLS_FORM, ADD_EXPERIENCE, ADD_SKILL, SHOW_DEGREES_FORM, HIDE_DEGREES_FORM, ADD_DEGREE, DELETE_DEGREE
 } from '../actions/actions';
 const initialState = {
     experiences: [
@@ -31,6 +37,12 @@ const initialState = {
         snackbarVariant: 'info'
     },
     experiencesForm: {
+        show: false
+    },
+    skillsForm: {
+        show: false
+    },
+    degreesForm: {
         show: false
     }
 };
@@ -104,6 +116,64 @@ function reducer(state = initialState, action) {
     if (action.type === HIDE_EXPERIENCES_FORM) {
         return Object.assign({}, state, {
             experiencesForm: {
+                show: false
+            }
+        });
+    }
+    if (action.type === DELETE_EXPERIENCE) {
+        return Object.assign({}, state, {
+            experiences: [...state.experiences.filter(exp => exp._id !== action.payload)]
+        });
+    }
+    if (action.type === SHOW_SKILLS_FORM) {
+        return Object.assign({}, state, {
+            skillsForm: {
+                show: true
+            }
+        });
+    }
+    if (action.type === HIDE_SKILLS_FORM) {
+        return Object.assign({}, state, {
+            skillsForm: {
+                show: false
+            }
+        });
+    }
+    if (action.type === DELETE_SKILL) {
+        return Object.assign({}, state, {
+            skills: [...state.skills.filter(skill => skill._id !== action.payload)]
+        });
+    }
+    if (action.type === DELETE_DEGREE) {
+        return Object.assign({}, state, {
+            degrees: [...state.degrees.filter(degree => degree._id !== action.payload)]
+        });
+    }
+    if (action.type === ADD_EXPERIENCE) {
+        return Object.assign({}, state, {
+            experiences: [...state.experiences, action.payload]
+        });
+    }
+    if (action.type === ADD_SKILL) {
+        return Object.assign({}, state, {
+            skills: [...state.skills, action.payload]
+        });
+    }
+    if (action.type === ADD_DEGREE) {
+        return Object.assign({}, state, {
+            degrees: [...state.degrees, action.payload]
+        });
+    }
+    if (action.type === SHOW_DEGREES_FORM) {
+        return Object.assign({}, state, {
+            degreesForm: {
+                show: true
+            }
+        });
+    }
+    if (action.type === HIDE_DEGREES_FORM) {
+        return Object.assign({}, state, {
+            degreesForm: {
                 show: false
             }
         });

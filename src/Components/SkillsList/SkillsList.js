@@ -12,22 +12,26 @@ import CustomizedSnackbars from '../Snackbar/Snackbar';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
-import ExperiencesForm from '../ExperiencesForm/ExperiencesForm';
+import SkillsForm from '../SkillsForm/SkillsForm';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import BookmarkRoundedIcon from '@material-ui/icons/BookmarkRounded';
 
-class ExperiencesList extends Component {
+class SkillsList extends Component {
     componentDidMount() {
-        axios.get('http://localhost:8080/experiences').then(res => {
-            this.props.dispatch({type: 'SET_EXPERIENCES', payload: res.data})
+        this.getSkills();
+    }
+
+    getSkills() {
+        axios.get('http://localhost:8080/skills').then(res => {
+            this.props.dispatch({type: 'SET_SKILLS', payload: res.data})
         });
     }
 
-    deleteExperience(experience) {
-        axios.delete('http://localhost:8080/experience/'+experience._id).then(res => {
+    deleteSkill(skill) {
+        axios.delete('http://localhost:8080/skill/'+skill._id).then(res => {
             console.log(res);
-            this.props.dispatch({type: 'DELETE_EXPERIENCE', payload: experience._id});
-        });
+            this.props.dispatch({type: 'DELETE_SKILL', payload: skill._id});
+        })
     }
 
     showSnackBar(message) {
@@ -38,24 +42,24 @@ class ExperiencesList extends Component {
         this.props.dispatch({type: 'HIDE_SNACKBAR'});
     }
 
-    showExperiencesForm() {
-        this.props.dispatch({type: 'SHOW_EXPERIENCES_FORM'});
+    showSkillsForm() {
+        this.props.dispatch({type: 'SHOW_SKILLS_FORM'});
     }
     render() {
         return (
             <div>
-                <div className='list-container' style={{display: !this.props.experiencesForm.show? 'block': 'none'}}>
-                    <h4 style={{textAlign: 'center'}}>Experiences</h4>
-                    <div className='experiences'>
+                <div className='list-container' style={{display: !this.props.skillsForm.show? 'block': 'none'}}>
+                    <h4 style={{textAlign: 'center'}}>Skills</h4>
+                    <div className='skills'>
                         <List className='list'>
-                            {this.props.experiences.map((experience) => (
-                                <ListItem key={experience._id} className='list-item'>
+                            {this.props.skills.map((skill) => (
+                                <ListItem key={skill._id} className='list-item'>
                                     <ListItemIcon>
                                         <BookmarkRoundedIcon />
                                     </ListItemIcon>
-                                    <ListItemText primary={experience.name}/>
+                                    <ListItemText primary={skill.name + ' - ' + skill.percentage + '%'}/>
                                     <ListItemSecondaryAction>
-                                        <IconButton edge="end" aria-label="delete" onClick={this.deleteExperience.bind(this, experience)}>
+                                        <IconButton edge="end" aria-label="delete" onClick={this.deleteSkill.bind(this, skill)}>
                                             <DeleteIcon/>
                                         </IconButton>
                                     </ListItemSecondaryAction>
@@ -65,14 +69,14 @@ class ExperiencesList extends Component {
                     </div>
                     <div style={{textAlign:'right', marginTop: '15px'}}>
                         <Tooltip title="Add" aria-label="add">
-                            <Fab color="secondary" onClick={this.showExperiencesForm.bind(this)}>
+                            <Fab color="secondary" onClick={this.showSkillsForm.bind(this)}>
                                 <AddIcon/>
                             </Fab>
                         </Tooltip>
                     </div>
                 </div>
 
-                <ExperiencesForm/>
+                <SkillsForm/>
                 <CustomizedSnackbars closeIt={this.closeSnackbar.bind(this)} variant={this.props.snackBar.snackbarVariant} message={this.props.snackBar.snackbarMessage} open={this.props.snackBar.showSnackBar}/>
             </div>
         );
@@ -80,9 +84,9 @@ class ExperiencesList extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        experiences: state.experiences,
+        skills: state.skills,
         snackBar: state.snackBar,
-        experiencesForm: state.experiencesForm
+        skillsForm: state.skillsForm
     };
 };
-export default connect(mapStateToProps)(ExperiencesList);
+export default connect(mapStateToProps)(SkillsList);

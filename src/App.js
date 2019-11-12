@@ -8,7 +8,9 @@ import Skills from "./Components/Skills/Skills";
 import store from './store';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ExperiencesList from "./Components/ExperiencesList/ExperiencesList";
-
+import SkillsList from "./Components/SkillsList/SkillsList";
+import DegreesList from "./Components/DegreesList/DegreesList";
+import History from './Components/History/History';
 class App extends Component{
     render() {
         return (
@@ -27,11 +29,24 @@ class App extends Component{
                             <h1 style={{textAlign: 'center'}}>Skills</h1>
                             <Skills/>
                         </section>
+                        <section className='container roboto'>
+                            <h1 style={{textAlign: 'center'}}>Degrees</h1>
+                            <History/>
+                        </section>
                     </Route>
                     <Route exact path="/admin">
                         <Header name='Admin'/>
                         <section className='roboto container'>
                             <ExperiencesList/>
+                            <SkillsList/>
+                            <DegreesList/>
+                        </section>
+                    </Route>
+                    <Route exact path="/contact">
+                        <Header name='Federico Baiocco'/>
+                        <Navbar/>
+                        <section className='roboto container'>
+
                         </section>
                     </Route>
                 </Router>

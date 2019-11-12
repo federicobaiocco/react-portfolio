@@ -33,10 +33,8 @@ class Navbar extends Component {
             <nav className={!this.props.visible ? 'navbar-hidden': ''}>
                 <div className='nav-items-container'>
                     <ul>
-                        <li>HOME</li>
-                        <li>PORTFOLIO</li>
-                        <li>ABOUT</li>
-                        <li>CONTACT</li>
+                        <li><a style={{textDecoration:'none', color: '#fff'}} href="/">HOME</a></li>
+                        <li><a style={{textDecoration:'none', color: '#fff'}} href="/contact">CONTACT</a></li>
                     </ul>
                 </div>
             </nav>

@@ -12,21 +12,22 @@ import CustomizedSnackbars from '../Snackbar/Snackbar';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
-import ExperiencesForm from '../ExperiencesForm/ExperiencesForm';
+import DegreesForm from '../DegreesForm/DegreesForm';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import BookmarkRoundedIcon from '@material-ui/icons/BookmarkRounded';
+import moment from 'moment';
 
-class ExperiencesList extends Component {
+class DegreesList extends Component {
     componentDidMount() {
-        axios.get('http://localhost:8080/experiences').then(res => {
-            this.props.dispatch({type: 'SET_EXPERIENCES', payload: res.data})
+        axios.get('http://localhost:8080/degrees').then(res => {
+            this.props.dispatch({type: 'SET_DEGREES', payload: res.data})
         });
     }
 
-    deleteExperience(experience) {
-        axios.delete('http://localhost:8080/experience/'+experience._id).then(res => {
+    deleteDegree(degree) {
+        axios.delete('http://localhost:8080/degree/'+degree._id).then(res => {
             console.log(res);
-            this.props.dispatch({type: 'DELETE_EXPERIENCE', payload: experience._id});
+            this.props.dispatch({type: 'DELETE_DEGREE', payload: degree._id});
         });
     }
 
@@ -38,24 +39,24 @@ class ExperiencesList extends Component {
         this.props.dispatch({type: 'HIDE_SNACKBAR'});
     }
 
-    showExperiencesForm() {
-        this.props.dispatch({type: 'SHOW_EXPERIENCES_FORM'});
+    showDegreesForm() {
+        this.props.dispatch({type: 'SHOW_DEGREES_FORM'});
     }
     render() {
         return (
             <div>
-                <div className='list-container' style={{display: !this.props.experiencesForm.show? 'block': 'none'}}>
-                    <h4 style={{textAlign: 'center'}}>Experiences</h4>
-                    <div className='experiences'>
+                <div className='list-container' style={{display: !this.props.degreesForm.show? 'block': 'none'}}>
+                    <h4 style={{textAlign: 'center'}}>Degrees</h4>
+                    <div className='degrees'>
                         <List className='list'>
-                            {this.props.experiences.map((experience) => (
-                                <ListItem key={experience._id} className='list-item'>
+                            {this.props.degrees.map((degree) => (
+                                <ListItem key={degree._id} className='list-item'>
                                     <ListItemIcon>
                                         <BookmarkRoundedIcon />
                                     </ListItemIcon>
-                                    <ListItemText primary={experience.name}/>
+                                    <ListItemText primary={degree.name + ' - Graduated: ' + moment(degree.endDate).year()}/>
                                     <ListItemSecondaryAction>
-                                        <IconButton edge="end" aria-label="delete" onClick={this.deleteExperience.bind(this, experience)}>
+                                        <IconButton edge="end" aria-label="delete" onClick={this.deleteDegree.bind(this, degree)}>
                                             <DeleteIcon/>
                                         </IconButton>
                                     </ListItemSecondaryAction>
@@ -65,14 +66,13 @@ class ExperiencesList extends Component {
                     </div>
                     <div style={{textAlign:'right', marginTop: '15px'}}>
                         <Tooltip title="Add" aria-label="add">
-                            <Fab color="secondary" onClick={this.showExperiencesForm.bind(this)}>
+                            <Fab color="secondary" onClick={this.showDegreesForm.bind(this)}>
                                 <AddIcon/>
                             </Fab>
                         </Tooltip>
                     </div>
                 </div>
-
-                <ExperiencesForm/>
+                <DegreesForm/>
                 <CustomizedSnackbars closeIt={this.closeSnackbar.bind(this)} variant={this.props.snackBar.snackbarVariant} message={this.props.snackBar.snackbarMessage} open={this.props.snackBar.showSnackBar}/>
             </div>
         );
@@ -80,9 +80,9 @@ class ExperiencesList extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        experiences: state.experiences,
+        degrees: state.degrees,
         snackBar: state.snackBar,
-        experiencesForm: state.experiencesForm
+        degreesForm: state.degreesForm
     };
 };
-export default connect(mapStateToProps)(ExperiencesList);
+export default connect(mapStateToProps)(DegreesList);
