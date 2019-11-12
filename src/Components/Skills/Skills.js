@@ -6,7 +6,6 @@ import axios from 'axios';
 class Skills extends Component {
     componentDidMount() {
         axios.get('http://localhost:8080/skills').then(res => {
-            console.info(res.data);
             this.props.dispatch({type: 'SET_SKILLS', payload: res.data});
         });
     }
