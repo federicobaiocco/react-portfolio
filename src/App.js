@@ -46,7 +46,7 @@ class App extends Component{
                         <Header name='Federico Baiocco'/>
                         <Navbar/>
                         <section className='roboto container'>
-
+                            <h1 style={{textAlign: 'center'}}>baioccofede@gmail.com</h1>
                         </section>
                     </Route>
                 </Router>

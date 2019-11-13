@@ -15,37 +15,32 @@ class History extends Component{
                             .map((value, key) => ({ year: key, degrees: value }))
                             .value();
             this.props.dispatch({type: 'SET_DEGREES', payload: degrees});
+            console.log(this.props.degrees)
         });
     }
 
     render() {
         return (
-            <div>
+            <div className='historyContainer'>
                 <div className="page">
                     <div className="timeline">
                         <div className="timeline__group">
-                            {this.props.degrees.map(year => {
-                                <div className="timeline__box">
+                            {this.props.degrees.map(box => (
+                                <div key={box.year} className="timeline__box">
                                     <div className="timeline__date">
-                                        <span className="timeline__day">2019</span>
+                                        <span className="timeline__day">{box.year}</span>
                                     </div>
-                                    <div className="timeline__post">
-                                        <div className="timeline__content">
-                                            <h4>Titulo</h4>
-                                            <p>Upon moving to Brooklyn that summer, I began photographing weddings in
-                                                Chicago</p>
-                                        </div>
-                                    </div>
-                                    <div className="timeline__post">
-                                        <div className="timeline__content">
-                                            <h4>Titulo</h4>
-                                            <p>Upon moving to Brooklyn that summer, I began photographing weddings in
-                                                Chicago</p>
-                                        </div>
-                                    </div>
-                                </div>
 
-                            })}
+                                    {box.degrees.map(details => (
+                                            <div key={details.name} className="timeline__post">
+                                                <div className="timeline__content">
+                                                    <h4>{details.name}</h4>
+                                                    <p>{details.description}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

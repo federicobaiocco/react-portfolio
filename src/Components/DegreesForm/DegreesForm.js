@@ -81,12 +81,10 @@ class DegreesForm extends Component {
                         <MuiPickersUtilsProvider utils={DateFnsUtils} style={{width: '100%'}}>
                             <Grid container justify="space-around">
                                 <KeyboardDatePicker
-                                    disableToolbar
-                                    variant="inline"
-                                    format="MM/dd/yyyy"
                                     margin="normal"
-                                    id="date-picker-inline"
+                                    id="date-picker-dialog"
                                     label="Graduation date"
+                                    format="MM/dd/yyyy"
                                     value={this.state.selectedDate}
                                     onChange={this.handleDateChange.bind(this)}
                                     KeyboardButtonProps={{

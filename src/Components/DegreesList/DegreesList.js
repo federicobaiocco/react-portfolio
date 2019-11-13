@@ -54,7 +54,7 @@ class DegreesList extends Component {
                                     <ListItemIcon>
                                         <BookmarkRoundedIcon />
                                     </ListItemIcon>
-                                    <ListItemText primary={degree.name + ' - Graduated: ' + moment(degree.endDate).year()}/>
+                                    <ListItemText primary={degree.name + ' - ' + moment(degree.endDate).year()}/>
                                     <ListItemSecondaryAction>
                                         <IconButton edge="end" aria-label="delete" onClick={this.deleteDegree.bind(this, degree)}>
                                             <DeleteIcon/>
