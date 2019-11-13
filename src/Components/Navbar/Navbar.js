@@ -7,13 +7,12 @@ class Navbar extends Component {
         const currentScrollPos = window.pageYOffset;
         const prevScrollpos  = this.props.prevScrollpos;
         const scrollingDown = prevScrollpos < currentScrollPos;
-
-        if(!scrollingDown) {
+        if(!scrollingDown && currentScrollPos < 100) {
             this.props.dispatch({type: 'UPDATE_SCROLL_POS', payload: currentScrollPos});
             this.props.dispatch({ type: 'UNFIX_HEADER' });
             this.props.dispatch({type: 'SHOW_NAVBAR'});
         }
-        else {
+        else if(currentScrollPos > 100){
             this.props.dispatch({type: 'UPDATE_SCROLL_POS', payload: currentScrollPos});
             this.props.dispatch({ type: 'FIX_HEADER' });
             this.props.dispatch({type: 'HIDE_NAVBAR'});
